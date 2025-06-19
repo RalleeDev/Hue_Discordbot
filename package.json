@@ -1,0 +1,25 @@
+{
+  "name": "Hue_Discordbot",
+  "version": "1.0.0",
+  "description": "A discord bot that allows you to control your hue lightning. Disclaimer the bot needs to be run on the same network as the hue bridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./build/main.js",
+    "dev": "pnpm run build && pnpm run start"
+  },
+  "keywords": [
+    "Hue",
+    "Discord",
+    "Hue Discord",
+    "Discord bot"
+  ],
+  "author": "RalleeDev",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "discord.js": "^14.20.0",
+    "typescript": "^5.8.3"
+  }
+}
