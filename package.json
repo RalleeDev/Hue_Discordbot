@@ -1,5 +1,5 @@
 {
-  "name": "Hue_Discordbot",
+  "name": "hue_discordbot",
   "version": "1.0.0",
   "description": "A discord bot that allows you to control your hue lightning. Disclaimer the bot needs to be run on the same network as the hue bridge",
   "main": "index.js",
