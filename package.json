@@ -19,7 +19,9 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
+    "@types/node": "^24.0.3",
     "discord.js": "^14.20.0",
+    "dotenv": "^16.5.0",
     "typescript": "^5.8.3"
   }
 }
