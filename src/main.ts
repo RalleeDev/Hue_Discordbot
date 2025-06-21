@@ -2,6 +2,9 @@ import { Client, Collection, Events, GatewayIntentBits, MessageFlags }from 'disc
 import 'dotenv/config'
 import fs from 'node:fs';
 import path from 'node:path';
+import { UpdateCommands } from './util';
+
+UpdateCommands();
 
 // Adding commands as a collectrion of a client objevct
 declare module 'discord.js' {
@@ -15,13 +18,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection();
 
 const foldersPath = path.join(__dirname, 'commands');
-const commandFolders = fs.readdirSync(foldersPath);
-
-for (const folder of commandFolders) {
-	const commandsPath = path.join(foldersPath, folder);
-	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-	for (const file of commandFiles) {
-		const filePath = path.join(commandsPath, file);
+const commandFiles = fs.readdirSync(foldersPath).filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+		const filePath = path.join(foldersPath, file);
 		const command = require(filePath);
 		// Set a new item in the Collection with the key as the command name and the value as the exported module
 		if ('data' in command && 'execute' in command) {
@@ -29,7 +28,7 @@ for (const folder of commandFolders) {
 		} else {
 			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
 		}
-}};
+};
 
 client.once(Events.ClientReady, readyClient => {
     console.log('The discord bot is now online');
